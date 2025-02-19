@@ -114,14 +114,15 @@ def is_a_leap_year(year):
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
 def days_since_birthday(birthday):
-    day, month, birth_year = map(int, birthday.split('-'))
-    current_year = 2025
+    day, month, birth_year = map(int, birthday.split('-'))  # Extract day, month, and year
+    current_year = 2025  # Assume current year is 2025
     total_days = 0
 
     for year in range(birth_year + 1, current_year):
-        total_days += 366
-        if def is_a_leap_year(year):(year) else 365
+        total_days += 366 if is_a_leap_year(year) else 365  # Check leap year correctly
 
     return total_days
 
-print(calculate_day_since_bday(bday))
+# Example usage:
+bday = "19-02-2000"  # Define the birthday
+print(days_since_birthday(bday))  # Call the function with the correct name
